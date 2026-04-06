@@ -378,6 +378,12 @@ Claudeが以下を行います：
 
 ---
 
+## 👤 作者
+
+**[Brenno Ferrari](https://brennoferrari.com)** が作成 — ベルリン在住のシニアiOSエンジニア、Claude Codeで開発者ツールを構築中。
+
+---
+
 ## 📄 ライセンス
 
 MIT

@@ -375,6 +375,12 @@ Your old vault is **never modified**. Use `--dry-run` to preview the plan withou
 
 ---
 
+## 👤 Author
+
+Created by **[Brenno Ferrari](https://brennoferrari.com)** — Senior iOS Engineer in Berlin, building developer tools with Claude Code.
+
+---
+
 ## 📄 License
 
 MIT

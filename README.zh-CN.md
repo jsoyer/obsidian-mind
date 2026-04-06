@@ -378,6 +378,12 @@ Claude 将会：
 
 ---
 
+## 👤 作者
+
+由 **[Brenno Ferrari](https://brennoferrari.com)** 创建 — 柏林高级 iOS 工程师，使用 Claude Code 构建开发者工具。
+
+---
+
 ## 📄 许可证
 
 MIT

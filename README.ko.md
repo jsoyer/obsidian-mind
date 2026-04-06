@@ -378,6 +378,12 @@ Claude가 수행하는 작업:
 
 ---
 
+## 👤 저자
+
+**[Brenno Ferrari](https://brennoferrari.com)** 제작 — 베를린의 시니어 iOS 엔지니어, Claude Code로 개발자 도구를 구축하고 있습니다.
+
+---
+
 ## 📄 라이선스
 
 MIT
