@@ -99,7 +99,7 @@ Decision: defer Redis migration. Win: Sarah praised the auth architecture.
 1. 克隆此仓库（或使用它作为 **GitHub 模板**）
 2. 将文件夹作为 **Obsidian 仓库** 打开
 3. 在 设置 → 通用 中启用 **Obsidian CLI**（需要 Obsidian 1.12+）
-4. 在仓库目录中运行 **`claude`**
+4. 在仓库目录中运行你的 Agent：**`claude`**、**`codex`** 或 **`gemini`**
 5. 在 **`brain/North Star.md`** 中填写你的目标——这将为每次会话定下基调
 6. 开始谈论工作
 
@@ -386,14 +386,39 @@ templates/              带有 YAML frontmatter 的 Obsidian 模板
 
 ## 🔄 升级
 
+### 更新已有克隆
+
+如果你直接克隆了仓库：
+
+```bash
+cd your-vault
+git pull origin main
+```
+
+新文件（`AGENTS.md`、`GEMINI.md`、`.codex/`、`.gemini/`）会自动出现，钩子脚本也会就地更新。
+
+### 更新 Fork
+
+如果你 Fork 了仓库：
+
+```bash
+git remote add upstream https://github.com/breferrari/obsidian-mind.git
+git fetch upstream
+git merge upstream/main
+```
+
+解决你自定义过的文件的冲突（通常是 `CLAUDE.md`、`brain/` 笔记）。基础设施文件（`.claude/scripts/`、`.codex/`、`.gemini/`）应该可以干净合并。
+
+### 从旧仓库迁移
+
 已经在使用旧版本的 obsidian-mind（或其他 Obsidian 仓库）？`/om-vault-upgrade` 命令可以将你的内容迁移到最新模板：
 
 ```bash
 # 1. 克隆最新版 obsidian-mind
 git clone https://github.com/breferrari/obsidian-mind.git ~/new-vault
 
-# 2. 在 Claude Code 中打开
-cd ~/new-vault && claude
+# 2. 用你的 Agent 打开
+cd ~/new-vault && claude   # 或 codex、gemini
 
 # 3. 运行升级命令，指向你的旧仓库
 /om-vault-upgrade ~/my-old-vault

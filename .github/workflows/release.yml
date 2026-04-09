@@ -69,7 +69,7 @@ jobs:
           cat > /tmp/release_body.md <<'HEADER'
           ## Quick Start
 
-          **Requirements:** [Obsidian](https://obsidian.md), [Claude Code](https://claude.ai/code), [Python 3.8+](https://python.org/downloads)
+          **Requirements:** [Obsidian](https://obsidian.md), [Python 3.8+](https://python.org/downloads), and an AI agent: [Claude Code](https://claude.ai/code), [Codex CLI](https://github.com/openai/codex), or [Gemini CLI](https://github.com/google-gemini/gemini-cli)
 
           ```bash
           git clone https://github.com/breferrari/obsidian-mind.git
@@ -78,7 +78,7 @@ jobs:
           qmd index && qmd embed      # build search index
           ```
 
-          Or download the vault zip below and extract it into your Obsidian vaults folder. Open it in Claude Code and run `/om-standup`.
+          Or download the vault zip below and extract it into your Obsidian vaults folder. Open it in your agent and run `om-standup`.
 
           HEADER
           # Strip leading whitespace from heredoc
