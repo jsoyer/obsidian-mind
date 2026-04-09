@@ -36,6 +36,10 @@ jobs:
             if [[ ! "$VERSION" =~ ^v ]]; then
               VERSION="v$VERSION"
             fi
+            # Normalize bare major (v4 → v4.0) or major.minor (v4.0 stays v4.0)
+            if [[ "$VERSION" =~ ^v[0-9]+$ ]]; then
+              VERSION="${VERSION}.0"
+            fi
           else
             VERSION="${GITHUB_REF#refs/tags/}"
           fi
