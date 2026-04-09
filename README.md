@@ -167,7 +167,7 @@ obsidian-mind works with Claude Code, Codex CLI, and Gemini CLI. The vault conve
 **Other agents** (Cursor, Windsurf, GitHub Copilot, JetBrains AI) — read `AGENTS.md` for vault conventions. Hook support varies by agent.
 
 > [!NOTE]
-> Subagents (`.claude/agents/`) and the memory system are Claude Code-specific. Hooks and commands work across Claude Code, Codex CLI, and Gemini CLI using shared scripts.
+> Hooks, commands, subagent prompts, and vault memory (`brain/`) are all agent-agnostic. Only the `~/.claude/` auto-memory loader is Claude Code-specific. See `AGENTS.md` for the full portability guide.
 
 ---
 

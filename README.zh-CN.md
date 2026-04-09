@@ -170,7 +170,7 @@ obsidian-mind 支持 Claude Code、Codex CLI 和 Gemini CLI。`CLAUDE.md` 中的
 **其他 Agent**（Cursor、Windsurf、GitHub Copilot、JetBrains AI）— 通过 `AGENTS.md` 读取 vault 规约。钩子支持因 Agent 而异。
 
 > [!NOTE]
-> 子代理（`.claude/agents/`）和记忆系统是 Claude Code 专属功能。钩子和命令通过共享脚本在 Claude Code、Codex CLI 和 Gemini CLI 上运行。
+> 钩子、命令、子代理提示和 vault 记忆（`brain/`）都是 Agent 无关的。只有 `~/.claude/` 自动记忆加载器是 Claude Code 专属功能。详见 `AGENTS.md`。
 
 ---
 

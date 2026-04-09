@@ -170,7 +170,7 @@ obsidian-mindはClaude Code、Codex CLI、Gemini CLIで動作します。`CLAUDE
 **その他のエージェント**（Cursor、Windsurf、GitHub Copilot、JetBrains AI）— `AGENTS.md`でボールト規約を読み取ります。フックサポートはエージェントにより異なります。
 
 > [!NOTE]
-> サブエージェント（`.claude/agents/`）とメモリシステムはClaude Code専用です。フックとコマンドはClaude Code、Codex CLI、Gemini CLIで共有スクリプトを使用して動作します。
+> フック、コマンド、サブエージェントプロンプト、ボールトメモリ（`brain/`）はすべてエージェント非依存です。`~/.claude/`の自動メモリローダーのみがClaude Code専用です。詳細は`AGENTS.md`をご覧ください。
 
 ---
 

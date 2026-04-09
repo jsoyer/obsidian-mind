@@ -31,9 +31,13 @@ The vault's memory lives in `brain/` — `Memories.md`, `Patterns.md`, `Key Deci
 
 The `~/.claude/` auto-loaded memory index is Claude Code-specific — skip that section in `CLAUDE.md`. The vault-side `brain/` notes are the source of truth.
 
-## What's agent-specific
+## Subagents
 
-Subagents (`.claude/agents/`) and the `~/.claude/` auto-memory loader are Claude Code-only. Skip those sections in `CLAUDE.md`.
+9 subagents in `.claude/agents/` handle isolated tasks (brag spotting, vault auditing, cross-linking, etc.). The prompt content is agent-agnostic markdown. Codex CLI (`.codex/agents/`) and Gemini CLI (`.gemini/agents/`) support the same pattern — copy the files and adapt the YAML frontmatter fields to your agent's schema.
+
+## What's Claude Code-specific
+
+Only the `~/.claude/` auto-memory loader is truly Claude Code-specific. Everything else — hooks, commands, subagent prompts, vault memory — is portable.
 
 ## Setup
 

@@ -170,7 +170,7 @@ obsidian-mind는 Claude Code, Codex CLI, Gemini CLI에서 작동합니다. `CLAU
 **기타 에이전트** (Cursor, Windsurf, GitHub Copilot, JetBrains AI) — `AGENTS.md`로 볼트 규약을 읽습니다. 훅 지원은 에이전트마다 다릅니다.
 
 > [!NOTE]
-> 서브에이전트(`.claude/agents/`)와 메모리 시스템은 Claude Code 전용입니다. 훅과 커맨드는 Claude Code, Codex CLI, Gemini CLI에서 공유 스크립트를 사용하여 작동합니다.
+> 훅, 커맨드, 서브에이전트 프롬프트, 볼트 메모리(`brain/`)는 모두 에이전트 비의존적입니다. `~/.claude/` 자동 메모리 로더만 Claude Code 전용입니다. 자세한 내용은 `AGENTS.md`를 참조하세요.
 
 ---
 
