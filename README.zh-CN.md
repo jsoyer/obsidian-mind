@@ -435,7 +435,7 @@ cd ~/new-vault && claude   # 或 codex、gemini
 ```
 
 Agent 将会：
-1. **检测** 你的仓库版本（v1–v3.2，或识别为非 obsidian-mind 仓库）
+1. **检测** 你的仓库版本（v1–v3.x，或识别为非 obsidian-mind 仓库）
 2. **盘点** 每个文件——分类为用户内容、脚手架、基础设施或未分类
 3. **展示迁移计划**——你可以确切看到哪些内容将被复制、转换和跳过
 4. **经你批准后执行**——转换 frontmatter、修复 wikilinks、重建索引

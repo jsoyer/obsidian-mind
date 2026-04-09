@@ -81,7 +81,7 @@ jobs:
           npm install -g @tobilu/qmd && qmd index && qmd embed   # optional: semantic search
           ```
 
-          Open the folder as an Obsidian vault, then run `claude`, `codex`, or `gemini` in the directory and type `om-standup`.
+          Open the folder as an Obsidian vault, then run `claude`, `codex`, or `gemini` in the directory and type `/om-standup` (or `om-standup` in Codex).
 
           Or download the vault zip below and extract it into your Obsidian vaults folder.
 
