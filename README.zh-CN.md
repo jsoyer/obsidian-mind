@@ -448,6 +448,14 @@ Agent 将会：
 
 ---
 
+## 🗺️ 路线图
+
+**从 Python 迁移到 TypeScript。** Hook 脚本将在未来的版本中迁移到 TypeScript。这项迁移由我亲自完成，因为它与尚未公开的其他工作相关联。提议进行此迁移的 PR 将会被关闭，感谢你的兴趣。
+
+**欢迎其他贡献。** 对于超过单文件的改动，请先创建 Issue。特别是涉及 Hook、安装流程或运行环境要求的改动。可以避免你做出无法合并的工作。
+
+---
+
 ## 🙏 设计灵感
 
 - [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills) — 官方 Obsidian 代理技能
