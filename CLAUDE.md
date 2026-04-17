@@ -11,7 +11,7 @@ This vault has [obsidian-skills](https://github.com/kepano/obsidian-skills) inst
 - **json-canvas**: Create `.canvas` files with nodes, edges, and visual layouts. See `references/EXAMPLES.md`.
 - **obsidian-bases**: Create `.base` files with views, filters, and formulas. Bases core plugin is enabled. See `references/FUNCTIONS_REFERENCE.md`.
 - **defuddle**: Extract clean markdown from web pages via `defuddle parse <url> --md`.
-- **qmd**: Semantic search across the vault via [QMD](https://github.com/tobi/qmd). Use PROACTIVELY before reading files -- `qmd query "..."` for hybrid search, `qmd search "..."` for keyword, `qmd vsearch "..."` for semantic. Falls back to grep/glob if QMD not installed.
+- **qmd**: Semantic search across the vault via [QMD](https://github.com/tobi/qmd). Use PROACTIVELY before reading files -- `qmd query "..."` for hybrid search, `qmd search "..."` for keyword, `qmd vsearch "..."` for semantic. Also registered as an MCP server via `.mcp.json` (project root), so the `qmd` tools are available directly in the Claude Code tool menu when QMD is installed. Falls back to grep/glob if QMD not installed.
 
 ### Custom Slash Commands
 
@@ -269,6 +269,15 @@ When asked to "remember" something:
 2. Add the knowledge there with a wikilink to context
 3. Update `brain/Memories.md` index if a new topic note was created
 4. Do NOT create additional files in `~/.claude/projects/.../memory/` beyond MEMORY.md -- they are not version-controlled
+
+### When to Consult Brain Topics
+
+The SessionStart hook injects a **Brain Topics (read on demand)** index listing each `brain/` topic note with its description and an `(empty)` marker for stub notes. Treat that index as a menu:
+
+- When the user's message touches a topic from the index (debugging → Gotchas, "how do we usually…" → Patterns, "why did we decide" → Key Decisions, "which command / slash" → Skills), query QMD **first** before answering — `qmd query "<topic keywords>"` searches the whole vault, so after the query filter or prioritize the results whose `file` path is under `brain/`. Do not assume the topic name alone scopes the search.
+- If QMD is unavailable, read the specific `brain/` note directly with the Read tool. Don't load all of `brain/` — only the one(s) matching the topic.
+- Skip notes marked `(empty)` in the index — they're stubs with no substantive content.
+- After answering, if the conversation produced durable knowledge, update the relevant brain note (see the "remember" workflow above).
 
 ## Agent Guidelines
 
