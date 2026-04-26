@@ -38,6 +38,8 @@ Agent: "You're working on Project Alpha, blocked on the BE contract.
 
 Works with **Claude Code** (full support), **Codex CLI**, and **Gemini CLI** — same hooks, same commands, same vault.
 
+Install via `shardmind install` or `git clone` — same vault either way.
+
 ---
 
 ## ⚡ See It In Action
@@ -95,12 +97,29 @@ You: "wrap up"
 
 ## 🚀 Quick Start
 
-1. Clone this repo (or use it as a **GitHub template**)
-2. Open the folder as an **Obsidian vault**
-3. Enable the **Obsidian CLI** in Settings → General (requires Obsidian 1.12+)
-4. Run your agent in the vault directory: **`claude`**, **`codex`**, or **`gemini`**
-5. Fill in **`brain/North Star.md`** with your goals — this grounds every session
-6. Start talking about work
+### 📦 Install via ShardMind (recommended)
+
+```bash
+npm install -g shardmind
+shardmind install breferrari/obsidian-mind
+```
+
+The wizard collects your name, organization, vault purpose, agents to include, and whether to enable QMD; the post-install hook personalizes `brain/North Star.md` with your answers. Then:
+
+1. Open the installed folder as an **Obsidian vault**
+2. Enable the **Obsidian CLI** in Settings → General (requires Obsidian 1.12+)
+3. Run your agent in the vault directory: **`claude`**, **`codex`**, or **`gemini`**
+4. Start talking about work
+
+[ShardMind](https://github.com/breferrari/shardmind) is the package manager for Obsidian vault templates. The install adds a `.shardmind/` sidecar that powers the wizard, optional modules (skip what you don't use), and three-way-merge upgrades. With every value at its default the install is byte-equivalent to `git clone` — clone-UX is preserved exactly. Delete `.shardmind/` and `shard-values.yaml` from the installed vault and it keeps working: ShardMind is additive, not load-bearing.
+
+### Or clone directly
+
+```bash
+git clone https://github.com/breferrari/obsidian-mind.git
+```
+
+Or use it as a **GitHub template**. Skip the wizard, get the bare template. Then run through the same 4 steps above, plus fill in **`brain/North Star.md`** with your goals (the ShardMind wizard does this for you).
 
 ### 🔍 Recommended: QMD Semantic Search
 
@@ -306,6 +325,7 @@ CLAUDE.md               Operating manual — read by your agent every session
 AGENTS.md               Multi-agent guide — Codex, Cursor, Windsurf, etc.
 GEMINI.md               Multi-agent guide — Gemini CLI
 vault-manifest.json     Template metadata — version, structure, schemas
+.shardmindignore        Files excluded from `shardmind install` (CONTRIBUTING, translations, marketing media)
 CHANGELOG.md            Version history
 CONTRIBUTING.md         Template development checklist
 README.md               Product documentation
@@ -350,7 +370,15 @@ templates/              Obsidian templates with YAML frontmatter
   scripts/              Hook scripts + charcount.ts utility
   skills/               Obsidian + QMD skills
   settings.json         5 hooks configuration
+
+.shardmind/             ShardMind sidecar — only used if installed via `shardmind install`
+  shard.yaml            Manifest (name, version, modules, hooks)
+  shard-schema.yaml     Wizard values + module gating
+  hooks/                post-install (QMD bootstrap + personalization), post-update
 ```
+
+> [!NOTE]
+> `.shardmind/` is **additive, not load-bearing.** A clone-and-open vault never reads it; only the `shardmind` CLI does. Delete it and the vault keeps working. See the v6 layout contract in [shardmind/docs/SHARD-LAYOUT.md](https://github.com/breferrari/shardmind/blob/main/docs/SHARD-LAYOUT.md).
 
 ---
 
@@ -438,9 +466,20 @@ git merge upstream/main
 
 Resolve any conflicts in files you customized (typically `CLAUDE.md`, `brain/` notes). Infrastructure files (`.claude/scripts/`, `.codex/`, `.gemini/`) should merge cleanly.
 
-### Migrating from an older vault
+### Adopting an existing clone into ShardMind (v5.x → v6)
 
-Using an older version of obsidian-mind (or any Obsidian vault)? The `/om-vault-upgrade` command migrates your content into the latest template:
+Already cloned obsidian-mind and want the wizard, optional modules, and three-way-merge upgrades without losing your customizations? `shardmind adopt` reconciles your existing vault into a managed v6 install — keeping every byte of your edits and only adding the `.shardmind/` sidecar + `shard-values.yaml`:
+
+```bash
+npm install -g shardmind
+shardmind adopt breferrari/obsidian-mind
+```
+
+The 2-way diff UI walks you through any local changes, asks per-file what to keep, then writes the engine metadata. Result: a v6-managed vault with your existing content intact, ready for `shardmind update` from there forward. No re-cloning.
+
+### Migrating from an older vault (or any other vault)
+
+Using a pre-v5 obsidian-mind, or migrating from a totally different Obsidian vault? The `/om-vault-upgrade` command migrates your content into the latest template:
 
 ```bash
 # 1. Clone the latest obsidian-mind
